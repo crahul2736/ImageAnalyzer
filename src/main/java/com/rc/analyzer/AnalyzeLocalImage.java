@@ -20,8 +20,8 @@ import java.net.URI;
 import java.nio.file.Files;
 
 public class AnalyzeLocalImage {
-    private static String subscriptionKey = "0a3bc19ae7de40dc8aa81aafd4b250ed";
-    private static String endpoint = "https://rc-image-processor.cognitiveservices.azure.com/";
+    private static String subscriptionKey = "0a3bc19";
+    private static String endpoint = "https://abc.cognitiveservices.azure.com/";
     private static String imgPath = "src/main/resources/IMG20220517150959.jpg";
 
     private static final String uriBase = endpoint + "vision/v3.2/analyze";
