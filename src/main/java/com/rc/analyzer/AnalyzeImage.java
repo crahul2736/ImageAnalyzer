@@ -13,8 +13,8 @@ import org.json.JSONObject;
 import java.net.URI;
 
 public class AnalyzeImage {
-    private static String subscriptionKey = "0a3bc19ae7de40dc8aa81aafd4b250ed";
-    private static String endpoint = "https://rc-image-processor.cognitiveservices.azure.com/";
+    private static String subscriptionKey = "0a3bc19a";
+    private static String endpoint = "https://abc.cognitiveservices.azure.com/";
 
     private static final String uriBase = endpoint + "vision/v3.2/analyze";
     private static final String imageToAnalyze = "https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg";
