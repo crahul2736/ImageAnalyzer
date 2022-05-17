@@ -22,6 +22,7 @@ import java.nio.file.Files;
 public class AnalyzeLocalImage {
     private static String subscriptionKey = "0a3bc19ae7de40dc8aa81aafd4b250ed";
     private static String endpoint = "https://rc-image-processor.cognitiveservices.azure.com/";
+    private static String imgPath = "src/main/resources/IMG20220517150959.jpg";
 
     private static final String uriBase = endpoint + "vision/v3.2/analyze";
 
@@ -36,6 +37,12 @@ public class AnalyzeLocalImage {
             builder.setParameter("visualFeatures", "Brands,Categories,Description,Color,Objects,Tags,ImageType");
             builder.setParameter("model-version", "latest");
 
+            //Convert image to bytes.
+            File localImage = new File(imgPath);
+            byte[] imgBytes = Files.readAllBytes(localImage.toPath());
+            ByteArrayEntity requestEntity =
+                    new ByteArrayEntity(imgBytes);
+
             // Prepare the URI for the REST API method.
             URI uri = builder.build();
             HttpPost request = new HttpPost(uri);
@@ -43,10 +50,6 @@ public class AnalyzeLocalImage {
             // Request headers.
             request.setHeader("Content-Type", "application/octet-stream");
             request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            File localImage = new File("src/main/resources/IMG20220517150959.jpg");
-            byte[] imgBytes = Files.readAllBytes(localImage.toPath());
-            ByteArrayEntity requestEntity =
-                    new ByteArrayEntity(imgBytes);
             request.setEntity(requestEntity);
 
             // Call the REST API method and get the response entity.
